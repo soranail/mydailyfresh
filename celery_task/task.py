@@ -4,7 +4,7 @@ from django.core.mail import send_mail
 
 from dailyFresh import settings
 import time
-app = Celery('celery_tasks.task',broker='redis://192.168.177.129:6379/8')
+app = Celery('celery_tasks.task',broker='redis://:hezhenyu@192.168.177.129:6379/8')
 
 @app.task
 #定义任务函数
