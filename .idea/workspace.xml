@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5f61f4de-04b3-44cf-8e19-7c0082f59ef0" name="Default Changelist" comment="" />
+    <list default="true" id="5f61f4de-04b3-44cf-8e19-7c0082f59ef0" name="Default Changelist" comment="改回windows">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/user/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/celery_task/task.py" beforeDir="false" afterPath="$PROJECT_DIR$/celery_task/task.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +60,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test_redis">
+  <component name="RunManager" selected="Django server.dailyFresh">
     <configuration name="test_redis" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="dailyFresh" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -126,7 +130,8 @@
       <workItem from="1597221341828" duration="9437000" />
       <workItem from="1597378089347" duration="1540000" />
       <workItem from="1597391114544" duration="15628000" />
-      <workItem from="1597455003044" duration="4682000" />
+      <workItem from="1597455003044" duration="6795000" />
+      <workItem from="1597476228295" duration="588000" />
     </task>
     <task id="LOCAL-00001" summary="改回windows">
       <created>1597473586241</created>
@@ -135,7 +140,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597473586242</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="改回windows">
+      <created>1597473616178</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1597473616178</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -146,7 +158,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -157,6 +171,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="改回windows" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/dailyFresh$test_redis.coverage" NAME="test_redis Coverage Results" MODIFIED="1597456769149" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/dailyFresh$test_redis.coverage" NAME="test_redis Coverage Results" MODIFIED="1597474799661" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

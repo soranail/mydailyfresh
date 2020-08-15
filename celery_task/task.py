@@ -1,10 +1,15 @@
 #使用celery
 from celery import Celery
 from django.core.mail import send_mail
-
 from dailyFresh import settings
 import time
+
+#在任务处理者端添加下面的代码
+import os
+import django
 app = Celery('celery_tasks.task',broker='redis://:hezhenyu@127.0.0.1:6379/8')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'dailyFresh.settings')      #设置环境变量
+django.setup()          #项目初始化
 
 @app.task
 #定义任务函数

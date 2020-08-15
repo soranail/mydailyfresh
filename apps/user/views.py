@@ -73,21 +73,21 @@ class RegisterView(View):
 class ActiveView(View):
     """用户激活"""
     def get(self,request,token):
-        #进行解密获取要激活的用户信息
-        serializer = Serializer(settings.SECRET_KEY,3600)
+        serializer = Serializer(settings.SECRET_KEY, 3600)
         try:
             info = serializer.loads(token)
+            # 获取激活用户的id
             user_id = info['confirm']
-
-            #根据id获取用户信息
+            # 根据id获取用户信息
             user = User.objects.get(id=user_id)
             user.is_active = 1
             user.save()
-            #跳转到登录页面
+            # 返回登录页面
             return redirect(reverse('user:login'))
-        except SignatureExpired as e:
-            #激活链接已过期
-            return HttpResponse('激活链接已过期')
+        except SignatureExpired:
+            # 激活链接过期
+            return HttpResponse("过期了")
+
 
 class LoginView(View):
     """登录"""
