@@ -153,3 +153,17 @@ EMAIL_HOST_USER = "hexunxun1167@163.com"
 EMAIL_HOST_PASSWORD = 'OQHDTKTSPZCZVHAD'
 # 收件人看到的发件人
 EMAIL_FROM = 'DailyFresh<hexunxun1167@163.com>'
+
+# redis缓存设置
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://hezhenyu@127.0.0.1:6379/9",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    }
+}
+# 配置session存储方式
+SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+SESSION_CACHE_ALIAS = "default"

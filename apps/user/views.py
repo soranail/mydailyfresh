@@ -1,4 +1,6 @@
 import re
+
+from django.contrib.auth import authenticate, login
 from django.core.mail import send_mail
 from django.conf import settings
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer      #加密
@@ -58,17 +60,19 @@ class RegisterView(View):
 
         #发送激活邮件，包含激活链接，链接中要有密文信息
         #加密用户的身份信息，生成token
-        serializer = Serializer(settings.SECRET_KEY,3600)
+        serializer = Serializer(settings.SECRET_KEY, 3600)
         info = {'confirm': user.id}
         token = serializer.dumps(info)
         #默认的token为bytes类型，将其转为字符串
         token = token.decode()
+
         #发邮件
-        send_register_active_email.delay(email,user_name,token)
+        send_register_active_email.delay(email, user_name, token)
 
         # 返回处理
-        # return redirect('/goods/index')
-        return redirect(reverse('goods:index'))
+        return redirect('/goods/index')
+        # return redirect(reverse('goods:index'))
+
 
 class ActiveView(View):
     """用户激活"""
@@ -94,4 +98,25 @@ class LoginView(View):
     def get(self,request):
         """显示登录页面"""
         return render(request,'login.html')
+    def post(self,request):
+        """登录校验"""
+        #接收数据
+        username = request.POST.get('username')
+        password = request.POST.get('pwd')
+        #校验数据
+        if not all([username,password]):
+            return render(request,'login.html',{'errmsg':'数据不完整'})
+        #业务处理：登录校验
+        user = authenticate(username=username,password=password)
+        if user is not None:
+            #用户名正确检验是否激活账号
+            if user.is_active:
+                #记录用户的登录状态
+                login(request,user)
+                return redirect(reverse('goods:index'))
+            else:
+                return render(request,'login.html',{'errmsg': '账户未激活'})
+        else:
+            return render(request,'login.html',{'errmsg': '用户名或密码错误'})
+        #返回应答
 
